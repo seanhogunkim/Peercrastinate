@@ -1,4 +1,4 @@
-package com.example.peercrastinationapp.ui.notifications;
+package com.example.peercrastinationapp.ui.myprofile;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -10,7 +10,7 @@ public class MyProfileViewModel extends ViewModel {
 
     public MyProfileViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is notifications fragment");
+        mText.setValue("i haveligma");
     }
 
     public LiveData<String> getText() {
