@@ -34,16 +34,16 @@ import java.util.ArrayList;
         }
 
 
-        //Gets the drink from the specified position of the array and sets the text of the recycler view to the parameters specified
+        //Gets the user from the specified position of the array and sets the text of the recycler view to the parameters specified
         @Override
         public void onBindViewHolder(@NonNull AddUserViewHolder holder, int position) {
             User currentUser = _usersList.get(position);
             holder._imageView.setImageResource(currentUser.get_imageResource());
             holder._name.setText(currentUser.get_name());
-            holder._userPoints.setText(currentUser.get_points());
+            holder._userPoints.setText(String.valueOf(currentUser.get_points()));
 
         }
-        //Finds the size of the array ie. number of unique drinks
+        //Finds the size of the array ie. number of unique users
         @Override
         public int getItemCount() {
             return _usersList.size();
@@ -58,7 +58,7 @@ import java.util.ArrayList;
 
             public AddUserViewHolder(@NonNull View itemView) {
                 super(itemView);
-//                _imageView = itemView.findViewById(R.id.userImageView);
+                _imageView = itemView.findViewById(R.id.userImageView);
                 _name = itemView.findViewById(R.id.userName);
                 _userPoints = itemView.findViewById(R.id.userPoints);
             }

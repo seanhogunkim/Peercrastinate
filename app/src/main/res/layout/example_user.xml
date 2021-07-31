@@ -28,7 +28,7 @@
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
-            tools:text="" />
+            tools:text="user name" />
 
         <TextView
             android:id="@+id/userPoints"
@@ -39,7 +39,7 @@
             android:layout_toEndOf="@+id/userImageView"
             android:textColor="@color/black"
             android:textSize="15sp"
-            tools:text="" />
+            tools:text="user points" />
 
         <TextView
             android:id="@+id/alcVolume"
@@ -50,7 +50,7 @@
             android:layout_toEndOf="@+id/userPoints"
             android:textColor="@color/black"
             android:textSize="15sp"
-            tools:text="" />
+            tools:text="alc volume" />
 
     </RelativeLayout>
 

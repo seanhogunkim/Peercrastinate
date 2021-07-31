@@ -34,22 +34,33 @@ public class HomeFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
+
         homeViewModel =
                 new ViewModelProvider(this).get(HomeViewModel.class);
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View rootView = binding.getRoot();
-        usersList.add(new User("Bean", 33));
+        createDrinkList();
         buildRecyclerView(rootView);
 
 
-        final TextView textView = binding.textLeaderboard;
-        homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+        for(int i = 0;i<20;i++){
+            insertUser("sean", 22);
+        }
+        insertUser("sean", 22);
+
+
+
+
+
+//        final TextView textView = binding.textLeaderboard;
+//        homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+//            @Override
+//            public void onChanged(@Nullable String s) {
+//                textView.setText(s);
+//            }
+//        });
         return rootView;
     }
 
@@ -59,15 +70,23 @@ public class HomeFragment extends Fragment {
         binding = null;
     }
 
+    //Initialisation of the list of drinks
+    public void createDrinkList() {
+        usersList = new ArrayList<>();
+    }
+
     public void buildRecyclerView(View rootView){
         _recyclerView=rootView.findViewById(R.id.recyclerViewAddUser);
         _recyclerView.setHasFixedSize(true);
         _layoutManager=new LinearLayoutManager(getActivity());
         _adapter=new AdapterAddUser(usersList);
 
+        _recyclerView.setLayoutManager(_layoutManager);
+        _recyclerView.setAdapter(_adapter);
+
     }
-//    public void insertUser(){
-//        usersList.add(new User("Bean", 33));
-//        _adapter.notifyItemInserted(0);
-//    }
+    public void insertUser(String s, int p){
+        usersList.add(new User(s, p));
+        _adapter.notifyItemInserted(0);
+    }
 }
