@@ -23,7 +23,6 @@ import androidx.navigation.ui.NavigationUI;
 import com.example.peercrastinationapp.databinding.ActivityMainBinding;
 
 import java.util.Calendar;
-import java.util.List;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity{
@@ -47,8 +46,7 @@ public class MainActivity extends AppCompatActivity{
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
 
-        AppOpsManager appOps = (AppOpsManager)
-                getSystemService(Context.APP_OPS_SERVICE);
+        AppOpsManager appOps = (AppOpsManager) getSystemService(Context.APP_OPS_SERVICE);
         int mode = appOps.checkOpNoThrow(AppOpsManager.OPSTR_GET_USAGE_STATS,
                 android.os.Process.myUid(), getPackageName());
 
