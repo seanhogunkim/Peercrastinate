@@ -34,7 +34,7 @@ import java.util.ArrayList;
         }
 
 
-        //Gets the user from the specified position of the array and sets the text of the recycler view to the parameters specified
+        //Gets the user from the specified position of the array and sets the text of the recycler view to  parameters specified
         @Override
         public void onBindViewHolder(@NonNull AddUserViewHolder holder, int position) {
             User currentUser = _usersList.get(position);
