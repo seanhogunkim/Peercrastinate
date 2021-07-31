@@ -46,20 +46,20 @@ public class MainActivity extends AppCompatActivity{
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
 
-        if(!checkForPermission(this)){
+        AppOpsManager appOps = (AppOpsManager)
+                getSystemService(Context.APP_OPS_SERVICE);
+        int mode = appOps.checkOpNoThrow(AppOpsManager.OPSTR_GET_USAGE_STATS,
+                android.os.Process.myUid(), getPackageName());
+
+        if(!(mode==AppOpsManager.MODE_ALLOWED)){
             startActivity(new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS));
         }
 
         UsageStatsManager usm = (UsageStatsManager) this.getSystemService(Context.USAGE_STATS_SERVICE);
         final int currentYear=Calendar.getInstance().get(Calendar.YEAR);
         final List<UsageStats> queryUsageStats=usm.queryUsageStats(UsageStatsManager.INTERVAL_YEARLY,currentYear-2,currentYear);
-        Log.d("myTag", queryUsageStats.get(0).toString());
+        //Log.d("myTag", queryUsageStats.get(0).toString());
     }
 
-    private boolean checkForPermission(Context context) {
-        AppOpsManager appOps = (AppOpsManager) context.getSystemService(Context.APP_OPS_SERVICE);
-        int mode = appOps.checkOpNoThrow(OPSTR_GET_USAGE_STATS, Process.myUid(), context.getPackageName());
-        return mode == AppOpsManager.MODE_ALLOWED;
-    }
 
 }
