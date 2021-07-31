@@ -1,4 +1,4 @@
-package com.example.peercrastinationapp.ui.notifications;
+package com.example.peercrastinationapp.ui.myprofile;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

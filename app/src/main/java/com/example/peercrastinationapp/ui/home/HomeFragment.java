@@ -11,11 +11,23 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.peercrastinationapp.R;
 import com.example.peercrastinationapp.databinding.FragmentHomeBinding;
+//import com.example.peercrastinationapp.ui.entities.AdapterAddUser;
+import com.example.peercrastinationapp.ui.entities.AdapterAddUser;
+import com.example.peercrastinationapp.ui.entities.User;
+
+import java.util.ArrayList;
 
 public class HomeFragment extends Fragment {
+
+    private RecyclerView _recyclerView;
+    private RecyclerView.Adapter _adapter;
+    private RecyclerView.LayoutManager _layoutManager;
+    private ArrayList<User> usersList = new ArrayList<>();
 
     private HomeViewModel homeViewModel;
     private FragmentHomeBinding binding;
@@ -26,7 +38,10 @@ public class HomeFragment extends Fragment {
                 new ViewModelProvider(this).get(HomeViewModel.class);
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
+        View rootView = binding.getRoot();
+        usersList.add(new User("Bean", 33));
+        buildRecyclerView(rootView);
+
 
         final TextView textView = binding.textLeaderboard;
         homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
@@ -35,7 +50,7 @@ public class HomeFragment extends Fragment {
                 textView.setText(s);
             }
         });
-        return root;
+        return rootView;
     }
 
     @Override
@@ -43,4 +58,16 @@ public class HomeFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
+
+    public void buildRecyclerView(View rootView){
+        _recyclerView=rootView.findViewById(R.id.recyclerViewAddUser);
+        _recyclerView.setHasFixedSize(true);
+        _layoutManager=new LinearLayoutManager(getActivity());
+        _adapter=new AdapterAddUser(usersList);
+
+    }
+//    public void insertUser(){
+//        usersList.add(new User("Bean", 33));
+//        _adapter.notifyItemInserted(0);
+//    }
 }

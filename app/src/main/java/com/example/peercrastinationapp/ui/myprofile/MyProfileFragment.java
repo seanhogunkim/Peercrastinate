@@ -1,4 +1,4 @@
-package com.example.peercrastinationapp.ui.notifications;
+package com.example.peercrastinationapp.ui.myprofile;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
