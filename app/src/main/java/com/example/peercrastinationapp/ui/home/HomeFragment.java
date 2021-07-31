@@ -39,7 +39,7 @@ public class HomeFragment extends Fragment {
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View rootView = binding.getRoot();
-        createDrinkList();
+        createUserList();
         buildRecyclerView(rootView);
 
 
@@ -69,7 +69,7 @@ public class HomeFragment extends Fragment {
     }
 
     //Initialisation of the list of drinks
-    public void createDrinkList() {
+    public void createUserList() {
         usersList = new ArrayList<>();
     }
 

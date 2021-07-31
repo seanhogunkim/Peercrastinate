@@ -19,10 +19,8 @@ import java.util.ArrayList;
     public class AdapterAddUser extends RecyclerView.Adapter<AdapterAddUser.AddUserViewHolder> {
         private ArrayList<User> _usersList;
 
-        //Constructor
         public AdapterAddUser(ArrayList<User> usersList) {
-            _usersList = usersList;
-
+            _usersList=usersList;
         }
 
         @NonNull

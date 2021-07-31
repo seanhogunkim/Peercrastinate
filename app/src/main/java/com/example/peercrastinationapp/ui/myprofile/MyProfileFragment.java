@@ -27,13 +27,12 @@ public class MyProfileFragment extends Fragment {
         binding = FragmentMyProfileBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textMyProfile;
-        myProfileViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+        TextView myName = binding.textMyName;
+        myName.setText("Name: " + "peepee");
+
+        TextView totalProcr = binding.textTotalProcrastination;
+        totalProcr.setText("Total Procrastination: " + "doomah");
+
         return root;
     }
 
