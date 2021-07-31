@@ -44,9 +44,9 @@ public class HomeFragment extends Fragment {
 
 
         for(int i = 0;i<20;i++){
-            insertUser("sean", 22);
+            insertUser("sean");
         }
-        insertUser("sean", 22);
+        insertUser("sean");
 
 
 
@@ -83,8 +83,8 @@ public class HomeFragment extends Fragment {
         _recyclerView.setAdapter(_adapter);
 
     }
-    public void insertUser(String s, int p){
-        usersList.add(new User(s, p));
+    public void insertUser(String s){
+        usersList.add(new User(s));
         _adapter.notifyItemInserted(0);
     }
 }

@@ -19,11 +19,6 @@ public class Game {
     public Game(User host) {
         users = new ArrayList<>();
         this.host = host;
-        Calendar cal = Calendar.getInstance();
-        this.startDate = new Date();
-        cal.setTime(startDate);
-        cal.add(Calendar.DATE,duration);
-        this.endDate = cal.getTime();
         users.add(host);
         updatePot();
 
@@ -73,6 +68,19 @@ public class Game {
         }
         output = builder.toString();
         return output;
+    }
+
+    public void setStartAndEndDate() {
+        Calendar cal = Calendar.getInstance();
+        this.startDate = new Date();
+        cal.setTime(startDate);
+        cal.add(Calendar.DATE,duration);
+        this.endDate = cal.getTime();
+    }
+
+    public void startGame() {
+        updatePot();
+        setStartAndEndDate();
     }
 
 }

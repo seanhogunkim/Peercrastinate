@@ -14,9 +14,9 @@ import java.util.Date;
 public class DashboardViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
-    User user = new User("peepo", 10);
-    User one = new User("popo", 10);
-    User two = new User("hehexd", 10);
+    User user = new User("peepo");
+    User one = new User("popo");
+    User two = new User("hehexd");
     Game game = new Game(user);
     DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
 
