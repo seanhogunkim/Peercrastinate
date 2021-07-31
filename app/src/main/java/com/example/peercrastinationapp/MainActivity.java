@@ -2,6 +2,8 @@ package com.example.peercrastinationapp;
 
 import android.os.Bundle;
 
+import com.example.peercrastinationapp.ui.entities.Game;
+import com.example.peercrastinationapp.ui.entities.User;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
+
+        User user = new User("nig", 10);
+        Game game = new Game(user);
     }
 
 }
