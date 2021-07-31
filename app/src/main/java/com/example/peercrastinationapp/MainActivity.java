@@ -24,6 +24,7 @@ import com.example.peercrastinationapp.databinding.ActivityMainBinding;
 
 import java.util.Calendar;
 import java.util.List;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity{
 
@@ -55,10 +56,17 @@ public class MainActivity extends AppCompatActivity{
             startActivity(new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS));
         }
 
+
         UsageStatsManager usm = (UsageStatsManager) this.getSystemService(Context.USAGE_STATS_SERVICE);
-        final int currentYear=Calendar.getInstance().get(Calendar.YEAR);
-        final List<UsageStats> queryUsageStats=usm.queryUsageStats(UsageStatsManager.INTERVAL_YEARLY,currentYear-2,currentYear);
-        //Log.d("myTag", queryUsageStats.get(0).toString());
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.MONTH, -1);
+        long start = calendar.getTimeInMillis();
+        long end = System.currentTimeMillis();
+        List<UsageStats> stats = usm.queryUsageStats(UsageStatsManager.INTERVAL_WEEKLY, start, end);
+        for(UsageStats i : stats){
+            Log.d("myTag", i.toString());
+        }
     }
 
 
