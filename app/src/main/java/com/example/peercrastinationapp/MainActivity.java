@@ -53,9 +53,8 @@ public class MainActivity extends AppCompatActivity{
                 android.os.Process.myUid(), getPackageName());
 
         if(!(mode==AppOpsManager.MODE_ALLOWED)){
-            startActivity(new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS));
+            startActivityForResult(new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS),1);
         }
-
 
         UsageStatsManager usm = (UsageStatsManager) this.getSystemService(Context.USAGE_STATS_SERVICE);
 
@@ -63,10 +62,16 @@ public class MainActivity extends AppCompatActivity{
         calendar.add(Calendar.MONTH, -1);
         long start = calendar.getTimeInMillis();
         long end = System.currentTimeMillis();
-        List<UsageStats> stats = usm.queryUsageStats(UsageStatsManager.INTERVAL_WEEKLY, start, end);
-        for(UsageStats i : stats){
-            Log.d("myTag", i.toString());
+        Map<String,UsageStats> stats = usm.queryAndAggregateUsageStats(start, end);
+
+        long sum =0;
+        for(Map.Entry<String,UsageStats> i : stats.entrySet()){
+            sum+=i.getValue().getTotalTimeInForeground();
         }
+
+        Log.d("myTag",Long.toString(sum));
+
+
     }
 
 
