@@ -10,7 +10,7 @@ public class MyProfileViewModel extends ViewModel {
 
     public MyProfileViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is notifications fragment");
+        mText.setValue("i haveligma");
     }
 
     public LiveData<String> getText() {

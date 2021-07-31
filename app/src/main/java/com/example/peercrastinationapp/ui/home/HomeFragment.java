@@ -16,10 +16,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.peercrastinationapp.R;
 import com.example.peercrastinationapp.databinding.FragmentHomeBinding;
-//import com.example.peercrastinationapp.ui.entities.AdapterAddUser;
 import com.example.peercrastinationapp.ui.entities.AdapterAddUser;
 import com.example.peercrastinationapp.ui.entities.User;
-
 import java.util.ArrayList;
 
 public class HomeFragment extends Fragment {
