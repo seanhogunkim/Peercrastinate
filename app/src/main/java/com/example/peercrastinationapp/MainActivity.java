@@ -22,6 +22,7 @@ import androidx.navigation.ui.NavigationUI;
 import com.example.peercrastinationapp.databinding.ActivityMainBinding;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -60,9 +61,7 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
-
-//        User user = new User("nig", 10);
-//        Game game = new Game(user);
+      
         AppOpsManager appOps = (AppOpsManager) getSystemService(Context.APP_OPS_SERVICE);
         int mode = appOps.checkOpNoThrow(AppOpsManager.OPSTR_GET_USAGE_STATS,
                 android.os.Process.myUid(), getPackageName());
@@ -74,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         UsageStatsManager usm = (UsageStatsManager) this.getSystemService(Context.USAGE_STATS_SERVICE);
 
         Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.MONTH, -1);
+        calendar.add(Calendar.DATE, -7);
         long start = calendar.getTimeInMillis();
         long end = System.currentTimeMillis();
         Map<String, UsageStats> stats = usm.queryAndAggregateUsageStats(start, end);
@@ -152,6 +151,7 @@ public class MainActivity extends AppCompatActivity {
 
     public class BackgroundQuickStart implements Runnable {
         User user;
+
 
         public BackgroundQuickStart(User user) {
             this.user = user;
