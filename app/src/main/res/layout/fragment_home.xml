@@ -4,7 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment">
+
+    tools:context=".ui.home.HomeFragment"
+    android:background="@drawable/gradientbackground">
+
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -14,6 +17,7 @@
 
         android:padding="4dp"
         android:scrollbars="vertical"
+
         app:layout_constraintTop_toBottomOf="@+id/tvTimeRemaining"
         tools:layout_editor_absoluteX="16dp" />
 
@@ -26,5 +30,6 @@
         android:textFontWeight="300"
         tools:layout_editor_absoluteX="36dp"
         tools:layout_editor_absoluteY="116dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

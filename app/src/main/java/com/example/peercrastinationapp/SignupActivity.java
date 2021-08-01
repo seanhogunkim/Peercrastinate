@@ -24,6 +24,7 @@ public class SignupActivity extends AppCompatActivity {
     }
 
     public void switchActivities(){
+        setContentView(R.layout.activity_main);
         Intent intent = new Intent(this, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_TASK_ON_HOME);
         startActivity(intent);
