@@ -1,6 +1,7 @@
 package com.example.peercrastinationapp.ui.home;
 
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +30,7 @@ public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
     private FragmentHomeBinding binding;
+    private TextView tvTimeRemaining;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -59,6 +61,23 @@ public class HomeFragment extends Fragment {
 //                textView.setText(s);
 //            }
 //        });
+
+        tvTimeRemaining = rootView.findViewById(R.id.tvTimeRemaining);
+        new CountDownTimer(482400000, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+                long tr = millisUntilFinished;
+                tvTimeRemaining.setText("Time Remaining: " + tr / (1000 * 60 * 24) + " days "
+                        + tr / (1000 * 60) + " minutes " + tr / (1000) + " seconds");
+                //here you can have your logic to set text to edittext
+            }
+
+            public void onFinish() {
+                tvTimeRemaining.setText("Game Over!");
+            }
+
+        }.start();
+
         return rootView;
     }
 
