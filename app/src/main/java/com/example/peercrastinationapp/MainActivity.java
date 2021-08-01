@@ -69,15 +69,15 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
 
-        //TODO make it so DB state dictates if signup page
-        if(savedInstanceState==null){
-            Intent intent = new Intent(this,SignupActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_TASK_ON_HOME);
-            startActivity(intent);
-            this.finish();
-            System.out.println("ligma");
-
-        }
+//        //TODO make it so DB state dictates if signup page
+//        if(savedInstanceState==null){
+//            Intent intent = new Intent(this,SignupActivity.class);
+//            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_TASK_ON_HOME);
+//            startActivity(intent);
+//            this.finish();
+//            System.out.println("ligma");
+//
+//        }
 
 
         AppOpsManager appOps = (AppOpsManager) getSystemService(Context.APP_OPS_SERVICE);
