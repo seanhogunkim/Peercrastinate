@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
     Realm uiThreadRealm;
+    Boolean opened = false;
     App app;
 
     @Override
@@ -76,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
 //            startActivity(intent);
 //            this.finish();
 //            System.out.println("ligma");
-//
+//            opened=true;
 //        }
 
 
@@ -108,68 +109,68 @@ public class MainActivity extends AppCompatActivity {
 
         Log.d("myTag", Long.toString(sum));
 
-        Realm.init(this); // context, usually an Activity or Application
-        String appID = "peercrastination-kouxz";
-        app = new App(new AppConfiguration.Builder(appID)
-                .build());
-        Credentials credentials = Credentials.anonymous();
-        app.loginAsync(credentials, result -> {
-            if (result.isSuccess()) {
-                Log.v("QUICKSTART", "Successfully authenticated anonymously.");
-                User user = app.currentUser();
-                String partitionValue = "leaderboard";
-                SyncConfiguration config = new SyncConfiguration.Builder(
-                        user,
-                        partitionValue)
-                        .build();
-                uiThreadRealm = Realm.getInstance(config);
-//                addChangeListenerToRealm(uiThreadRealm);
-                FutureTask<String> task = new FutureTask(new BackgroundQuickStart(app.currentUser()), "test");
-                ExecutorService executorService = Executors.newFixedThreadPool(2);
-                executorService.execute(task);
-            } else {
-                Log.e("QUICKSTART", "Failed to log in. Error: " + result.getError());
-            }
-        });
+//        Realm.init(this); // context, usually an Activity or Application
+//        String appID = "peercrastination-kouxz";
+//        app = new App(new AppConfiguration.Builder(appID)
+//                .build());
+//        Credentials credentials = Credentials.anonymous();
+//        app.loginAsync(credentials, result -> {
+//            if (result.isSuccess()) {
+//                Log.v("QUICKSTART", "Successfully authenticated anonymously.");
+//                User user = app.currentUser();
+//                String partitionValue = "leaderboard";
+//                SyncConfiguration config = new SyncConfiguration.Builder(
+//                        user,
+//                        partitionValue)
+//                        .build();
+//                uiThreadRealm = Realm.getInstance(config);
+////                addChangeListenerToRealm(uiThreadRealm);
+//                FutureTask<String> task = new FutureTask(new BackgroundQuickStart(app.currentUser()), "test");
+//                ExecutorService executorService = Executors.newFixedThreadPool(2);
+//                executorService.execute(task);
+//            } else {
+//                Log.e("QUICKSTART", "Failed to log in. Error: " + result.getError());
+//            }
+//        });
+//
+//    }
+//
+//    private void addChangeListenerToRealm(Realm realm) {
+//        // all tasks in the realm
+//        RealmResults<Leaderboard> tasks = uiThreadRealm.where(Leaderboard.class).findAllAsync();
+//        tasks.addChangeListener(new OrderedRealmCollectionChangeListener<RealmResults<Leaderboard>>() {
+//            @Override
+//            public void onChange(RealmResults<Leaderboard> collection, OrderedCollectionChangeSet changeSet) {
+//                // process deletions in reverse order if maintaining parallel data structures so indices don't change as you iterate
+//                OrderedCollectionChangeSet.Range[] deletions = changeSet.getDeletionRanges();
+//                for (OrderedCollectionChangeSet.Range range : deletions) {
+//                    Log.v("QUICKSTART", "Deleted range: " + range.startIndex + " to " + (range.startIndex + range.length - 1));
+//                }
+//                OrderedCollectionChangeSet.Range[] insertions = changeSet.getInsertionRanges();
+//                for (OrderedCollectionChangeSet.Range range : insertions) {
+//                    Log.v("QUICKSTART", "Inserted range: " + range.startIndex + " to " + (range.startIndex + range.length - 1));
+//                }
+//                OrderedCollectionChangeSet.Range[] modifications = changeSet.getChangeRanges();
+//                for (OrderedCollectionChangeSet.Range range : modifications) {
+//                    Log.v("QUICKSTART", "Updated range: " + range.startIndex + " to " + (range.startIndex + range.length - 1));
+//                }
+//            }
+//        });
+//    }
 
-    }
-
-    private void addChangeListenerToRealm(Realm realm) {
-        // all tasks in the realm
-        RealmResults<Leaderboard> tasks = uiThreadRealm.where(Leaderboard.class).findAllAsync();
-        tasks.addChangeListener(new OrderedRealmCollectionChangeListener<RealmResults<Leaderboard>>() {
-            @Override
-            public void onChange(RealmResults<Leaderboard> collection, OrderedCollectionChangeSet changeSet) {
-                // process deletions in reverse order if maintaining parallel data structures so indices don't change as you iterate
-                OrderedCollectionChangeSet.Range[] deletions = changeSet.getDeletionRanges();
-                for (OrderedCollectionChangeSet.Range range : deletions) {
-                    Log.v("QUICKSTART", "Deleted range: " + range.startIndex + " to " + (range.startIndex + range.length - 1));
-                }
-                OrderedCollectionChangeSet.Range[] insertions = changeSet.getInsertionRanges();
-                for (OrderedCollectionChangeSet.Range range : insertions) {
-                    Log.v("QUICKSTART", "Inserted range: " + range.startIndex + " to " + (range.startIndex + range.length - 1));
-                }
-                OrderedCollectionChangeSet.Range[] modifications = changeSet.getChangeRanges();
-                for (OrderedCollectionChangeSet.Range range : modifications) {
-                    Log.v("QUICKSTART", "Updated range: " + range.startIndex + " to " + (range.startIndex + range.length - 1));
-                }
-            }
-        });
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        // the ui thread realm uses asynchronous transactions, so we can only safely close the realm
-        // when the activity ends and we can safely assume that those transactions have completed
-        uiThreadRealm.close();
-        app.currentUser().logOutAsync(result -> {
-            if (result.isSuccess()) {
-                Log.v("QUICKSTART", "Successfully logged out.");
-            } else {
-                Log.e("QUICKSTART", "Failed to log out, error: " + result.getError());
-            }
-        });
+//    @Override
+//    protected void onDestroy() {
+//        super.onDestroy();
+//        // the ui thread realm uses asynchronous transactions, so we can only safely close the realm
+//        // when the activity ends and we can safely assume that those transactions have completed
+//        uiThreadRealm.close();
+//        app.currentUser().logOutAsync(result -> {
+//            if (result.isSuccess()) {
+//                Log.v("QUICKSTART", "Successfully logged out.");
+//            } else {
+//                Log.e("QUICKSTART", "Failed to log out, error: " + result.getError());
+//            }
+//        });
     }
 
     public void openFragment(Fragment selectedFragment) {

@@ -43,11 +43,30 @@ public class HomeFragment extends Fragment {
         buildRecyclerView(rootView);
 
 
-        for(int i = 0;i<20;i++){
-            insertUser("sean");
-        }
-        insertUser("sean");
+        User bill=new User("Bill");
+        bill.set_points(11);
+        bill.set_position(1);
+        insertUser(bill);
 
+        User aaron=new User("Sean");
+        aaron.set_points(9);
+        aaron.set_position(2);
+        insertUser(aaron);
+
+        User jack=new User("Aaron");
+        jack.set_points(7);
+        jack.set_position(3);
+        insertUser(jack);
+
+        User johnny=new User("Johnny");
+        johnny.set_points(6);
+        johnny.set_position(4);
+        insertUser(johnny);
+
+        User sean=new User("Jack");
+        sean.set_points(4);
+        sean.set_position(5);
+        insertUser(sean);
 
 
 
@@ -83,8 +102,8 @@ public class HomeFragment extends Fragment {
         _recyclerView.setAdapter(_adapter);
 
     }
-    public void insertUser(String s){
-        usersList.add(new User(s));
+    public void insertUser(User u){
+        usersList.add(u);
         _adapter.notifyItemInserted(0);
     }
 }

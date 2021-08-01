@@ -17,7 +17,7 @@ import java.util.Date;
 public class DashboardViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
-    User user = new User("peepo");
+    User user = new User("Jafar");
     User one = new User("popo");
     User two = new User("hehexd");
     Game game = new Game(user);

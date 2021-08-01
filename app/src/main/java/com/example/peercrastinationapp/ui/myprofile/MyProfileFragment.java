@@ -28,10 +28,11 @@ public class MyProfileFragment extends Fragment {
         View root = binding.getRoot();
 
         TextView myName = binding.textMyName;
-        myName.setText("Name: " + "peepee");
+        myName.setText("Name: " + "Sean");
+
 
         TextView totalProcr = binding.textTotalProcrastination;
-        totalProcr.setText("Total Procrastination: " + "doomah");
+        totalProcr.setText("Total Procrastination: " + "10 hours");
 
         return root;
     }

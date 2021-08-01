@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.peercrastinationapp.R;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
     /**
      * Adapter class for RecyclerView.Adapter made for purpose of the recycler view used in FragmentAddDrink
@@ -37,7 +39,7 @@ import java.util.ArrayList;
         @Override
         public void onBindViewHolder(@NonNull AddUserViewHolder holder, int position) {
             User currentUser = _usersList.get(position);
-            holder._imageView.setImageResource(currentUser.get_imageResource());
+            holder._rank.setText(String.valueOf(currentUser.get_position())); // hard coded
             holder._name.setText(currentUser.get_name());
             holder._userPoints.setText(String.valueOf(currentUser.get_points()));
 
@@ -51,13 +53,13 @@ import java.util.ArrayList;
         // https://stackoverflow.com/questions/31302341/what-difference-between-static-and-non-static-viewholder-in-recyclerview-adapter#:~:text=By%20using%20static%20it%20just,rather%20than%20a%20nested%20class.
 
         public static class AddUserViewHolder extends RecyclerView.ViewHolder {
-            public ImageView _imageView;
+            public TextView _rank;
             public TextView _name;
             public TextView _userPoints;
 
             public AddUserViewHolder(@NonNull View itemView) {
                 super(itemView);
-                _imageView = itemView.findViewById(R.id.userImageView);
+                _rank = itemView.findViewById(R.id.userRanking);
                 _name = itemView.findViewById(R.id.userName);
                 _userPoints = itemView.findViewById(R.id.userPoints);
             }
