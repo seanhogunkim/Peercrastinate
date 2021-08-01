@@ -10,13 +10,16 @@
         <entry key="..\:/Users/seanh/StudioProjects/Peercrastination/app/src/main/res/drawable/ic_launcher_background.xml" value="0.15989583333333332" />
         <entry key="..\:/Users/seanh/StudioProjects/Peercrastination/app/src/main/res/drawable/transparentbackground.xml" value="0.15989583333333332" />
         <entry key="..\:/Users/seanh/StudioProjects/Peercrastination/app/src/main/res/layout/activity_main.xml" value="0.176" />
+        <entry key="..\:/Users/seanh/StudioProjects/Peercrastination/app/src/main/res/layout/activity_signup.xml" value="0.264" />
         <entry key="..\:/Users/seanh/StudioProjects/Peercrastination/app/src/main/res/layout/example_user.xml" value="0.2" />
         <entry key="..\:/Users/seanh/StudioProjects/Peercrastination/app/src/main/res/layout/fragment_dashboard.xml" value="0.152" />
         <entry key="..\:/Users/seanh/StudioProjects/Peercrastination/app/src/main/res/layout/fragment_home.xml" value="0.152" />
         <entry key="..\:/Users/seanh/StudioProjects/Peercrastination/app/src/main/res/layout/fragment_my_profile.xml" value="0.2509057971014493" />
         <entry key="..\:/Users/seanh/StudioProjects/Peercrastination/app/src/main/res/layout/fragment_notifications.xml" value="0.14375" />
+        <entry key="..\:/Users/seanh/StudioProjects/Peercrastination/app/src/main/res/layout/fragment_signup.xml" value="0.2509057971014493" />
         <entry key="..\:/Users/seanh/StudioProjects/Peercrastination/app/src/main/res/layout/ic_brain.xml" value="0.25905797101449274" />
         <entry key="..\:/Users/seanh/StudioProjects/Peercrastination/app/src/main/res/layout/icon_brain.xml" value="0.25905797101449274" />
+        <entry key="..\:/Users/seanh/StudioProjects/Peercrastination/app/src/main/res/layout/signup_user" value="0.2509057971014493" />
         <entry key="..\:/Users/seanh/StudioProjects/Peercrastination/app/src/main/res/menu/bottom_nav_menu.xml" value="0.27447916666666666" />
       </map>
     </option>

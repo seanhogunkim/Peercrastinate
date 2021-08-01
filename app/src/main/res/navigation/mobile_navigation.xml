@@ -22,4 +22,10 @@
         android:name="com.example.peercrastinationapp.ui.myprofile.MyProfileFragment"
         android:label="@string/title_my_profile"
         tools:layout="@layout/fragment_my_profile" />
+
+    <fragment
+        android:id="@+id/navigation_signup"
+        android:name="com.example.peercrastinationapp.ui.myprofile.SignupFragment"
+        android:label="Signup"
+        tools:layout="@layout/fragment_signup"/>
 </navigation>
