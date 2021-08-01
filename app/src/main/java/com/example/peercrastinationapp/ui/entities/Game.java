@@ -24,6 +24,8 @@ public class Game {
 
         //randomly generate gameID
         gameID = generateGameID();
+        //TODO: Send gameID to database
+
     }
 
     public User getHost() {
@@ -81,6 +83,7 @@ public class Game {
     public void startGame() {
         updatePot();
         setStartAndEndDate();
+        //TODO: Send updated data to database: pot, start/end time, list of players
     }
 
 }

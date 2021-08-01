@@ -8,6 +8,8 @@ public class User {
     public User(String name){
         _name=name;
         _points = 0;
+        //TODO Send new user details to database, use the object itself as an identifier.
+        //Make this data locally stored so each access keeps user details.
     }
 
     public String get_name(){
