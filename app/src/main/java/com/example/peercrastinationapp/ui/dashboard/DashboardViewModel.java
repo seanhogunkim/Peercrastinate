@@ -11,12 +11,15 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * Dashboard is currently being used as a tester for the Game class, everything here can be changed.
+ */
 public class DashboardViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
-    User user = new User("peepo", 10);
-    User one = new User("popo", 10);
-    User two = new User("hehexd", 10);
+    User user = new User("peepo");
+    User one = new User("popo");
+    User two = new User("hehexd");
     Game game = new Game(user);
     DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
 
