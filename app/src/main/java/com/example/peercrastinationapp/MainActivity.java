@@ -69,15 +69,15 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
 
-        //TODO make it so DB state dictates if signup page
-        if(savedInstanceState==null){
-            Intent intent = new Intent(this,SignupActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_TASK_ON_HOME);
-            startActivity(intent);
-            this.finish();
-            System.out.println("ligma");
-
-        }
+//        //TODO make it so DB state dictates if signup page
+//        if(savedInstanceState==null){
+//            Intent intent = new Intent(this,SignupActivity.class);
+//            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_TASK_ON_HOME);
+//            startActivity(intent);
+//            this.finish();
+//            System.out.println("ligma");
+//
+//        }
 
 
         AppOpsManager appOps = (AppOpsManager) getSystemService(Context.APP_OPS_SERVICE);
@@ -95,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
         /**
          * TODO: send the sum to the database, update every second if possible
          * Retrieve  lobby-start-time from database and set the start-time to the lobby-start-time.
+         * This should be done at game START not game CREATE.
          */
         long start = calendar.getTimeInMillis();
         long end = System.currentTimeMillis();

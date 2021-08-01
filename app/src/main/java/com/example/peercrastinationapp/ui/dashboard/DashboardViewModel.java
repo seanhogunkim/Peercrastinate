@@ -26,6 +26,7 @@ public class DashboardViewModel extends ViewModel {
     public DashboardViewModel() {
         game.addUser(one);
         game.addUser(two);
+        game.startGame();
         mText = new MutableLiveData<>();
         mText.setValue("Lobby Code: " + game.getGameID()
                 + "\nStart Time: " + dateFormat.format(game.getStartDate())

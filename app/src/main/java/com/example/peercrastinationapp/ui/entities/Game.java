@@ -1,8 +1,17 @@
 package com.example.peercrastinationapp.ui.entities;
 
+import android.app.AppOpsManager;
+import android.app.usage.UsageStats;
+import android.app.usage.UsageStatsManager;
+import android.content.Context;
+import android.content.Intent;
+import android.provider.Settings;
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Map;
 import java.util.Random;
 
 public class Game {
@@ -14,6 +23,7 @@ public class Game {
     ArrayList<User> users;
     Date startDate;
     Date endDate;
+    //calculate time procrastinated using current time retrieved from database.
     int duration = 7; //no. of days the game goes on for.
 
     public Game(User host) {
@@ -86,4 +96,8 @@ public class Game {
         //TODO: Send updated data to database: pot, start/end time, list of players
     }
 
+    //TODO: create method to update game with more recent stats
+    public void updateGame() {
+        System.out.println("YEP");
+    }
 }
