@@ -73,7 +73,11 @@ public class MainActivity extends AppCompatActivity {
         UsageStatsManager usm = (UsageStatsManager) this.getSystemService(Context.USAGE_STATS_SERVICE);
 
         Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.DATE, -7);
+        calendar.add(Calendar.DATE, -7); //start time currently set to 7 days earlier than current time.
+        /**
+         * TODO: send the sum to the database, update every second if possible
+         * Retrieve  lobby-start-time from database and set the start-time to the lobby-start-time.
+         */
         long start = calendar.getTimeInMillis();
         long end = System.currentTimeMillis();
         Map<String, UsageStats> stats = usm.queryAndAggregateUsageStats(start, end);
@@ -183,6 +187,4 @@ public class MainActivity extends AppCompatActivity {
 //            RealmResults<Leaderboard> tables = backgroundThreadRealm.where(Leaderboard.class).findAll();
         }
     }
-
-
 }
