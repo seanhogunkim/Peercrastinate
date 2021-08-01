@@ -63,12 +63,11 @@ public class HomeFragment extends Fragment {
 //        });
 
         tvTimeRemaining = rootView.findViewById(R.id.tvTimeRemaining);
-        new CountDownTimer(482400000, 1000) {
+        new CountDownTimer(59000, 1000) {
 
             public void onTick(long millisUntilFinished) {
                 long tr = millisUntilFinished;
-                tvTimeRemaining.setText("Time Remaining: " + tr / (1000 * 60 * 24) + " days "
-                        + tr / (1000 * 60) + " minutes " + tr / (1000) + " seconds");
+                tvTimeRemaining.setText("Time Remaining: 6 days 38 minutes " + tr / (1000) + " seconds");
                 //here you can have your logic to set text to edittext
             }
 
